@@ -91,8 +91,8 @@ const sessionConfig={
     store,
     name:'session',
     secret,
-    resave: true,
-    saveUninitialized:true,
+    // resave: true,
+    // saveUninitialized:true,
     cookies:{
         httpOnly: true,
         //secure:true, Only secure connections https
