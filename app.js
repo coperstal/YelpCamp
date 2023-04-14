@@ -91,7 +91,7 @@ const sessionConfig={
     store,
     name:'session',
     secret,
-    resave:false,
+    resave: true,
     saveUninitialized:true,
     cookies:{
         httpOnly: true,
