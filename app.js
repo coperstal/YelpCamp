@@ -92,7 +92,7 @@ const sessionConfig={
     name:'session',
     secret,
     resave:"false",
-    saveUnitialized:true,
+    // saveUnitialized:true,
     cookies:{
         httpOnly: true,
         //secure:true, Only secure connections https
