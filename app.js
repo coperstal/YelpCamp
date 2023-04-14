@@ -87,7 +87,7 @@ store.on("error",function(e){
     console.log("Session store error",e);
 })
 
-const sessionConfig={
+app.use(session({
     store,
     name:'session',
     secret,
@@ -99,9 +99,8 @@ const sessionConfig={
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7       
     }
-}
+}));
 
-app.use(session(sessionConfig));
 app.use(flash());
 
 
