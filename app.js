@@ -29,8 +29,8 @@ const campgroundsRoutes = require("./routes/campgrounds");
 const reviewsRoutes=require("./routes/reviews")
 
 
-const dbUrl="mongodb://localhost:27017/yelp-Camp";
-//const dbUrl=process.env.DB_URL || 'mongodb:localhost:27017/yelp-Camp';
+//const dbUrl="mongodb://localhost:27017/yelp-Camp";
+const dbUrl=process.env.DB_URL || 'mongodb:localhost:27017/yelp-Camp';
 
 mongoose.set('strictQuery', false);
 mongoose.connect(dbUrl, {
@@ -72,8 +72,8 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(mongoSanitize({   replaceWith: '_',})); // replace the $ signs to _to avoid NoSql Injections
 
 
-//const secret= process.env.SECRET || "Thisshouldbebettersecret";
-const secret= "Thisshouldbebettersecret";
+const secret= process.env.SECRET || "Thisshouldbebettersecret";
+//const secret= "Thisshouldbebettersecret";
 
 
 
