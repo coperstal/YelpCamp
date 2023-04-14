@@ -88,7 +88,7 @@ store.on("error",function(e){
 })
 
 app.use(session({
-    // store,
+     store,
     name:'session',
     secret,
     resave: true,
