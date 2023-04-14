@@ -88,11 +88,11 @@ store.on("error",function(e){
 })
 
 app.use(session({
-    store,
+    // store,
     name:'session',
     secret,
-    // resave: true,
-    // saveUninitialized:true,
+    resave: true,
+    saveUninitialized: true,
     cookies:{
         httpOnly: true,
         //secure:true, Only secure connections https
