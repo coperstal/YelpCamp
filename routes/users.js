@@ -13,6 +13,18 @@ router.get("/login",users.renderLogin)
 
 router.post("/login",passport.authenticate("local",{failureFlash:true,failureRedirect:"/login"}),users.login)
 
+router.get("/forgot",users.renderForgot)
+
+
+
+// app.post("/forgot",async(req,res)=>{
+//     const email=req.body.email; 
+//     const user= await User.find({email: email})
+//     console.log(user);
+
+// })
+
+
 
 //DEN KSERW GT ME AYTO DEN TREXEI
 // router.get("/logout",(req,res,next)=>{

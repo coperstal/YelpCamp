@@ -3,6 +3,7 @@ const mbxGeocoding= require("@mapbox/mapbox-sdk/services/geocoding")
 const mapBoxToken=process.env.MAPBOX_TOKEN;
 const geocoder=mbxGeocoding({accessToken: mapBoxToken});
 const {cloudinary} = require('../cloudinary');
+const {getSms}= require("../public/javascripts/routee");
 
 module.exports.index = async (req,res)=>{
     const campgrounds= await Campground.find({});
@@ -24,6 +25,7 @@ module.exports.createCampground = async(req,res,next)=>{
     campground.geometry=geoData.body.features[0].geometry;
     campground.images= req.files.map(f =>({url:f.path, filename: f.filename}))
     campground.author=req.user._id;
+   // getSms(campground.title,campground.author);
     await campground.save();
     console.log(campground);
     req.flash('success', 'Successfully made a new Campground!');

@@ -4,8 +4,6 @@
 // }
 require('dotenv').config()
 
-
-
 const express= require("express");
 const path=require("path");
 const mongoose = require('mongoose');
@@ -22,6 +20,7 @@ const rateLimit = require('express-rate-limit')
 const MongoStore = require('connect-mongo');
 
 
+
 const mongoSanitize = require('express-mongo-sanitize');
 
 const usersRoutes=require("./routes/users");
@@ -29,8 +28,8 @@ const campgroundsRoutes = require("./routes/campgrounds");
 const reviewsRoutes=require("./routes/reviews")
 
 
-//const dbUrl="mongodb://localhost:27017/yelp-Camp";
-const dbUrl=process.env.DB_URL || 'mongodb:localhost:27017/yelp-Camp';
+const dbUrl="mongodb://localhost:27017/yelp-Camp";
+//const dbUrl=process.env.DB_URL || 'mongodb:localhost:27017/yelp-Camp';
 
 mongoose.set('strictQuery', false);
 mongoose.connect(dbUrl, {
@@ -142,9 +141,11 @@ app.use("/campgrounds",campgroundsRoutes)
 app.use("/campgrounds/:id/reviews",reviewsRoutes);
 
 
+
 app.get('/',(req,res)=>{
     res.render('home')
 });
+
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError("Page Not found",404))

@@ -1,5 +1,8 @@
 const User = require("../models/user");
 const catchAsync = require("../utils/catchAsync");
+//const async=require("async");
+const nodemailer=require("nodemailer");
+const crypto=require("crypto");
 
 module.exports.renderRegister= (req, res) => {
     res.render("users/register")
@@ -37,3 +40,10 @@ module.exports.logout=(req, res) => {
     req.flash("success", "Goodbye!");
     res.redirect("/campgrounds");
 }
+
+module.exports.renderForgot=(req,res)=>{
+    res.render("users/forgot");
+}
+
+
+
