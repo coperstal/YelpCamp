@@ -92,8 +92,9 @@ const sendResetPasswordMail= async(name,email,token)=>{
             from:config.emailUser,
             to:email,
             subject:"YelpCamp Reset Password !",
-            html:"<p> Hi "+name+ `! Please Click here to <a href="/forget-password?Token=${token}"> Reset</a> Password.`
-            //html:"<p> Hi "+name+ `! Please Click here to <a href="https://yelpcamp-p2m0.onrender.com/forget-password?Token=${token}"> Reset</a> Password.`
+            // html:"<p> Hi "+name+ `! Please Click here to <a href="http://127.0.0.1:3000/forget-password?Token=${token}"> Reset</a> Password.`
+            html:"<p> Hi "+name+ `! Please Click here to <a href="https://yelpcamp-p2m0.onrender.com/forget-password?Token=${token}"> Reset</a> Password.`
+
         }
 
         transporter.sendMail(mailOptions,function(error,info){
