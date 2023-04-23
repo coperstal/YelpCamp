@@ -15,16 +15,13 @@ router.post("/login",passport.authenticate("local",{failureFlash:true,failureRed
 
 router.get("/forgot",users.renderForgot)
 
+router.post("/forgot",users.forgot)
 
+router.get("/forget-password",users.forgetPasswordLoad)
 
-// app.post("/forgot",async(req,res)=>{
-//     const email=req.body.email; 
-//     const user= await User.find({email: email})
-//     console.log(user);
+router.post("/forget-password",users.resetPassword)
 
-// })
-
-
+router.get("/logout",users.logout);
 
 //DEN KSERW GT ME AYTO DEN TREXEI
 // router.get("/logout",(req,res,next)=>{
@@ -35,9 +32,6 @@ router.get("/forgot",users.renderForgot)
 //     });  
 // })
 // I ENALAKTIKI APO PANO
-
-
-router.get("/logout",users.logout);
 
 
 module.exports = router;

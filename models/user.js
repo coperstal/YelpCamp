@@ -8,6 +8,10 @@ const UserSchema=new Schema({
         type: String,
         require: true,
         unique:true
+    },
+    token:{
+        type:String,
+        default:""
     }
 });
 
